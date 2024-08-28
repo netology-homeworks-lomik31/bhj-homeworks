@@ -11,7 +11,6 @@ class Game {
     this.reset();
 
     this.registerEvents();
-    this.setTimer();
   }
 
   reset() {
