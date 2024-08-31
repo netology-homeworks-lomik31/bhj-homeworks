@@ -8,7 +8,7 @@ function isVisible(el) {
     return true;
 }
 
-setInterval(() => {
+document.addEventListener('scroll', () => {
     for (let i = 0; i < revealEl.length; i++) {
         if (isVisible(revealEl[i])) {
             revealEl[i].classList.add('reveal_active');
@@ -16,4 +16,4 @@ setInterval(() => {
             revealEl[i].classList.remove('reveal_active');
         }
     }
-}, 100);
+});
