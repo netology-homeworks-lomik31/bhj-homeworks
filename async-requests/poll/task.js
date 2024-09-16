@@ -15,12 +15,12 @@ xhr.onreadystatechange = function() {
         document.querySelectorAll('.pool__answer').forEach((button, index) => {
             button.addEventListener('click', () => {
                 alert("Спасибо, ваш голос засчитан!");
-                let xhr_post = new XMLHttpRequest();
-                xhr_post.open("POST", "https://students.netoservices.ru/nestjs-backend/poll");
-                xhr_post.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr_post.onreadystatechange = function() {
-                    if (xhr_post.readyState === 4 && xhr_post.status === 201) {
-                        let response_result = JSON.parse(xhr_post.responseText);
+                let xhrPost = new XMLHttpRequest();
+                xhrPost.open("POST", "https://students.netoservices.ru/nestjs-backend/poll");
+                xhrPost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhrPost.onreadystatechange = function() {
+                    if (xhrPost.readyState === 4 && xhrPost.status === 201) {
+                        let response_result = JSON.parse(xhrPost.responseText);
                         document.querySelector('.poll').innerHTML = `
                             <div class="pool__title" id="pool__title">${response.data.title}</div>
 
@@ -32,7 +32,7 @@ xhr.onreadystatechange = function() {
                         });
                     }
                 };
-                xhr_post.send(`vote=${response.id}&answer=${index}`);
+                xhrPost.send(`vote=${response.id}&answer=${index}`);
             });
         });
     }
